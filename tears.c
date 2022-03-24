@@ -1,5 +1,9 @@
+//Author: Alexander Akimov
+//Last upd: 24.03.22 20:58
+
 #include<stdio.h> 
 #include<string.h>
+#include<unistd.h>
 
 int check(char line[]) 
 { 
@@ -53,25 +57,21 @@ void main()
  
     FILE *inp; 
     FILE *out; 
-    inp = fopen("ishodn.txt", "r"); 
-    out = fopen("itog.txt", "w"); 
+    inp = fopen("main.txt", "r"); 
+    out = fopen("result.txt", "w"); 
 
-   /* if(!inp){ 
-        puts("Файл не обнаружен. Будет создан файл с указанным именем");
-        if(!(inp = fopen(ishodn.txt,"wb+")))
-            exit(ERR_OPEN_FILE);
-    }else
-        puts("Файл существует и успешно открыт");
-    
-    fclose(inp);
- 
-    return 0;*/
- 
-    while (!feof(inp)){ 
-        fgets(line, sizeof(line), inp); 
-        fprintf(out, check(line)); 
-    } 
- 
+    if( access("main.txt", F_OK ) == 0 ) {
+    // file exists
+        printf(":success\n");
+            while (!feof(inp)){ 
+            fgets(line, sizeof(line), inp); 
+            fprintf(out, check(line));
+            }
+    } else {
+        printf("unable to find main file:error\n");
+        return 0;
+    // file doesn't exist
+    }
     fclose(inp); 
     fclose(out); 
  
