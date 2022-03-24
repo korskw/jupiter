@@ -1,5 +1,5 @@
 //Author: Alexander Akimov
-//Last upd: 24.03.22 20:58
+//Last upd: 24.03.22 21:43
 
 #include<stdio.h> 
 #include<string.h>
@@ -7,8 +7,8 @@
 
 int check(char line[]) 
 { 
-    int bolshbukv = 0; 
-    int podcherk = 0; 
+    int capital = 0; 
+    int underline = 0; 
     int len = strlen(line); 
  
     if(len == 1 && line[0] == '\n'){return "[empty line:error]\n";} 
@@ -18,7 +18,7 @@ int check(char line[])
  
                 if(i == 0){return "[type:error]\n";} 
  
-                podcherk = 1; 
+                underline = 1; 
  
                 line[i] = line[i+1] - ('a'-'A');   
  
@@ -32,7 +32,7 @@ int check(char line[])
  
                 if(i == 0){return "[type:error]\n";} 
  
-                bolshbukv = 1; 
+                capital = 1; 
  
                 char buf;
  
@@ -47,7 +47,7 @@ int check(char line[])
             } 
     } 
  
-    if((podcherk && bolshbukv) || (! podcherk && ! bolshbukv)){return "[type:error]\n";} 
+    if((underline && capital) || (! underline && ! capital)){return "[type:error]\n";} 
     return line; 
 } 
  
