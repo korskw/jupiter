@@ -1,11 +1,12 @@
 //Author: Alexander Akimov
 //Last upd: 24.03.22 21:43
+//CamelCase into snake_case
 
 #include<stdio.h> 
 #include<string.h>
 #include<unistd.h>
 
-int check(char line[]) 
+int check(char line[]) //создаем функцию check которая принимает строчку, а возвращает число
 { 
     int capital = 0; 
     int underline = 0; 
@@ -47,7 +48,7 @@ int check(char line[])
             } 
     } 
  
-    if((underline && capital) || (! underline && ! capital)){return "[type:error]\n";} 
+    if(underline !^= capital){return "[type:error]\n";} 
     return line; 
 } 
  
