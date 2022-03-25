@@ -17,11 +17,20 @@ int check(char line[]) //создаем функцию check которая пр
     for(int i = 0; i < len; i++){  
             if(line[i] == '_'){  
  
-                if(i == 0){return "[type:error]\n";} 
+                if(i == 0){return "[underline first:error]\n";} 
  
                 underline = 1; 
- 
-                line[i] = line[i+1] - ('a'-'A');   
+
+
+                if (line[i+1]>='a' && line[i+1] <='z'){
+                    line [i] = line [i+1] - ('a'-'A');
+                }
+                
+                else{
+                    //line[i] = line[i+1];
+                    return "[capital or number after underline:error]\n";
+                }
+
  
                 for(int j = i+1; j < len; j++){ 
                     line[j] = line[j+1]; 
@@ -31,7 +40,7 @@ int check(char line[]) //создаем функцию check которая пр
  
             else if(line[i] >= 'A' && line[i] <= 'Z'){  
  
-                if(i == 0){return "[type:error]\n";} 
+                if(i == 0){return "[capital first:error]\n";} 
  
                 capital = 1; 
  
@@ -48,7 +57,7 @@ int check(char line[]) //создаем функцию check которая пр
             } 
     } 
  
-    if(underline !^= capital){return "[type:error]\n";} 
+    if(underline == capital){return "[capital after underline or not found:error]\n";} 
     return line; 
 } 
  

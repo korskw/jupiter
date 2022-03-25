@@ -1,13 +1,15 @@
-123_abc
-321Avx
-[type:error]
-sdsdDsdas
+[capital after underline or not found:error]
+[capital first:error]
+[capital or number after underline:error]
+123_lkj
+[capital first:error]
+[capital first:error]
 [empty line:error]
-asawdsxXsdasXsdasd
-[type:error]
-[type:error]
-[type:error]
-akljsdlSdaclks
-[type:error]
-[type:error]
-asnklNkjsan
+[capital after underline or not found:error]
+[capital after underline or not found:error]
+[capital first:error]
+qwE
+[capital or number after underline:error]
+[capital after underline or not found:error]
+qw_er
+[capital first:error]
